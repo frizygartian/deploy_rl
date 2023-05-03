@@ -8,6 +8,7 @@
 # =[Modules dan Packages]========================
 
 from flask import Flask,render_template,request,jsonify
+from flask_ngrok import run_with_ngrok
 import numpy as np
 import gym
 import pickle
@@ -204,7 +205,9 @@ if __name__ == '__main__':
 	Q_table_all = pickle.load(open('Q_table_Frozen_Lake.model', 'rb'))
 
 	# Run Flask di localhost 
-	app.run(host="localhost", port=5000, debug=True)
+		# Run Flask di localhost 
+	run_with_ngrok(app)
+	app.run()
 	
 	
 
